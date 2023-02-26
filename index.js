@@ -2,9 +2,21 @@ const express = require('express');
 const app = express();
 const pdfkit = require('pdfkit');
 const fs = require('fs');
+const bodyParser = require('body-parser')
+
+// create application/json parser
+var jsonParser = bodyParser.json();
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+
+// parse application/json
+app.use(bodyParser.json())
 
 // Configuração do servidor
 const PORT = 3000;
+
+
 
 // Rota inicial (envia o arquivo HTML)
 app.get('/', (req, res) => {
@@ -12,11 +24,12 @@ app.get('/', (req, res) => {
 });
 
 // Rota para receber os dados do paciente
-app.post('/paciente', (req, res) => {
+app.post('/paciente',jsonParser, (req, res) => {
   // Recebe os dados do paciente enviados pelo formulário
 
   console.log('recebi dados do paciente');
   console.log(req.body);
+
 
   // Realiza o processamento dos dados recebidos e identifica a reação adversa
   // ...

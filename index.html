@@ -87,8 +87,7 @@
         $.ajax({
           type: 'POST',
           url: '/paciente',
-          data: paciente, // aqui o objeto paciente criado acima será enviao ao backende via ajax
-          contentType: "application/json; charset=utf-8",
+          data: JSON.stringify(paciente), // aqui o objeto paciente criado acima será enviao ao backende via ajax
           dataType: 'json',
           success: function (response) {
             console.log('Dados enviados com sucesso!');
