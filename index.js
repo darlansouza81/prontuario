@@ -55,8 +55,8 @@ app.get('/download/:filename', (req, res) => {
     res.download(path);
   });
 
-const pdfkit = require('pdfkit');
-const fs = require('fs');
+//const pdfkit = require('pdfkit');
+//const fs = require('fs');
 
 
 // Rota inicial (envia o arquivo HTML)
@@ -77,27 +77,7 @@ app.post('/paciente', (req, res) => {
   // Realiza o processamento dos dados recebidos e identifica a reação adversa
   // ...
 
-  // Gera o relatório em PDF
-  const doc = new pdfkit();
-  doc.pipe(fs.createWriteStream('relatorio.pdf'));
-
-  // Adiciona o título do relatório
-  doc.fontSize(20).text('Relatório de Atendimento', { align: 'center' });
-
-  // Adiciona as informações do paciente
-  doc.fontSize(16).text(`Nome: ${nome}`);
-  doc.fontSize(16).text(`Idade: ${idade}`);
-  doc.fontSize(16).text(`Gênero: ${genero}`);
-  doc.fontSize(16).text(`Doenças: ${doencas}`);
-  doc.fontSize(16).text(`Medicamentos: ${medicamentos}`);
-  doc.fontSize(16).text(`Alergias: ${alergias}`);
-
-  // Adiciona as informações da identificação da reação adversa
-  // ...
-
-  // Finaliza o documento PDF
-  doc.end();
-
+  
   // Retorna a resposta da identificação da reação adversa para o frontend
   res.json({ reacaoAdversa: 'Reação adversa identificada!', relatorio: 'relatorio.pdf' });
 });
@@ -115,17 +95,17 @@ app.post('/medicamento', (req, res) => {
   // ...
 
   // Gera o relatório em PDF
-  const doc = new pdfkit();
-  doc.pipe(fs.createWriteStream('relatorio.pdf'));
+  //const doc = new pdfkit();
+  //doc.pipe(fs.createWriteStream('relatorio.pdf'));
 
   // Adiciona o título do relatório
-  doc.fontSize(20).text('Relatório de Atendimento', { align: 'center' });
+  //doc.fontSize(20).text('Relatório de Atendimento', { align: 'center' });
 
   // Adiciona as informações do medicamento
-  doc.fontSize(16).text(`Nome: ${nomeMedicamento}`);
-  doc.fontSize(16).text(`Dose: ${dose}`);
-  doc.fontSize(16).text(`Frequência: ${frequencia}`);
-  doc.fontSize
+  //doc.fontSize(16).text(`Nome: ${nomeMedicamento}`);
+  //doc.fontSize(16).text(`Dose: ${dose}`);
+  //doc.fontSize(16).text(`Frequência: ${frequencia}`);
+  //doc.fontSize
 
 // Rota inicial (envia o arquivo HTML)
 app.get('/', (req, res) => {
