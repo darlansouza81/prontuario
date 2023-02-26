@@ -177,6 +177,6 @@ app.post('/medicamento', (req, res) => {
 });
 
 // Inicia o servidor
-app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
