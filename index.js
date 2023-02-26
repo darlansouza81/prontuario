@@ -3,14 +3,7 @@ const app = express();
 const pdfkit = require('pdfkit');
 const fs = require('fs');
 const bodyParser = require('body-parser')
-const { MongoClient } = require('mongodb');
-const url = 'mongodb://localhost:27017';
-const dbName = 'myDatabase';
-const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-};
-const db = client.db(dbName);
+
 
 // create application/json parser
 var jsonParser = bodyParser.json();
@@ -102,15 +95,3 @@ app.post('/medicamento', (req, res) => {
 app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
-
-MongoClient.connect(url, options, function(err, client) {
-  
- 
-  if (err) {
-      console.log('Erro ao conectar ao servidor:', err);
-    } else {
-      console.log('Conexão estabelecida com sucesso.');
-      client.close();
-    }
-  });
-    
