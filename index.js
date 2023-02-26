@@ -54,13 +54,10 @@ app.get('/download/:filename', (req, res) => {
     const path = __dirname + '/' + filename;
     res.download(path);
   });
-  const express = require('express');
-const app = express();
+
 const pdfkit = require('pdfkit');
 const fs = require('fs');
 
-// Configuração do servidor
-const PORT = 3000;
 
 // Rota inicial (envia o arquivo HTML)
 app.get('/', (req, res) => {
@@ -113,7 +110,7 @@ app.post('/medicamento', (req, res) => {
   const frequencia = req.body.frequencia;
   const indicacoes = req.body.indicacoes;
   const contraindicacoes = req.body.contraindicacoes;
-
+});
   // Realiza o processamento dos dados recebidos e identifica a reação adversa
   // ...
 
@@ -129,12 +126,6 @@ app.post('/medicamento', (req, res) => {
   doc.fontSize(16).text(`Dose: ${dose}`);
   doc.fontSize(16).text(`Frequência: ${frequencia}`);
   doc.fontSize
-
-  const express = require('express');
-const app = express();
-
-// Configuração do servidor
-const PORT = 3000;
 
 // Rota inicial (envia o arquivo HTML)
 app.get('/', (req, res) => {
