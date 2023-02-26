@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const pdfkit = require('pdfkit');
+const fs = require('fs');
 
 // Configuração do servidor
 const PORT = 3000;
@@ -55,9 +57,6 @@ app.get('/download/:filename', (req, res) => {
     res.download(path);
   });
 
-//const pdfkit = require('pdfkit');
-//const fs = require('fs');
-
 
 // Rota inicial (envia o arquivo HTML)
 app.get('/', (req, res) => {
@@ -66,6 +65,10 @@ app.get('/', (req, res) => {
 
 // Rota para receber os dados do paciente
 app.post('/paciente', (req, res) => {
+
+  console.log(req);
+
+
   // Recebe os dados do paciente enviados pelo formulário
   const nome = req.body.nome;
   const idade = req.body.idade;
