@@ -47,8 +47,6 @@ app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
 });
 
-<!-- Exemplo de link para download do relatório -->
-<a href="/download/relatorio.pdf" download>Download do relatório</a>
 
 // Rota para download do relatório em PDF
 app.get('/download/:filename', (req, res) => {
