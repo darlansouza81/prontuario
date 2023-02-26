@@ -14,18 +14,15 @@ app.get('/', (req, res) => {
 // Rota para receber os dados do paciente
 app.post('/paciente', (req, res) => {
   // Recebe os dados do paciente enviados pelo formulário
-  const nome = req.body.nome;
-  const idade = req.body.idade;
-  const genero = req.body.genero;
-  const doencas = req.body.doencas;
-  const medicamentos = req.body.medicamentos;
-  const alergias = req.body.alergias;
+
+  console.log('recebi dados do paciente');
+  console.log(req.body);
 
   // Realiza o processamento dos dados recebidos e identifica a reação adversa
   // ...
 
   // Retorna a resposta da identificação da reação adversa para o frontend
-  res.json({ reacaoAdversa: 'Reação adversa identificada!' });
+  res.status(201).json({message:"Successfully Registered"});
 });
 
 // Rota para receber os dados do medicamento
