@@ -86,7 +86,7 @@
         // envia os dados para o back-end usando AJAX
         $.ajax({
           type: 'POST',
-          url: 'http://prontuario.herokuapp.com/paciente',
+          url: '/paciente',
           data: paciente, // aqui o objeto paciente criado acima será enviao ao backende via ajax
           dataType: 'json',
           success: function (response) {
