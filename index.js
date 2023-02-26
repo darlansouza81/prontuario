@@ -16,7 +16,7 @@ app.post('/paciente', (req, res) => {
   // Recebe os dados do paciente enviados pelo formulário
 
   console.log('recebi dados do paciente');
-  console.log(req);
+  console.log(req.body);
 
   // Realiza o processamento dos dados recebidos e identifica a reação adversa
   // ...
@@ -59,6 +59,7 @@ app.get('/download/:filename', (req, res) => {
 app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
+
 
 // Rota para receber os dados do medicamento
 app.post('/medicamento', (req, res) => {
