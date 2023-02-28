@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const pdfkit = require('pdfkit');
 const fs = require('fs');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
 
 
 // create application/json parser
@@ -96,36 +96,3 @@ app.listen(process.env.PORT || 3000, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 
-//mongodb
-
-const express = require('express');
-const mongodb = require('mongodb');
-const app = express();
-
-// Conecte-se ao banco de dados MongoDB
-const MongoClient = mongodb.MongoClient;
-const url = 'mongodb://localhost:27017/meubanco';
-MongoClient.connect(url, (err, client) => {
-  if (err) throw err;
-  console.log('Conectado ao banco de dados MongoDB');
-  const db = client.db('meubanco');
-});
-
-// Defina a rota para receber as informações do formulário
-app.post('/enviar', (req, res) => {
-  const nome = req.body.nome;
-  const sobrenome = req.body.sobrenome;
-  const endereco = req.body.endereco;
-
-  // Insira os dados no MongoDB
-  db.collection('usuarios').insertOne({ nome: nome, sobrenome: sobrenome, endereco: endereco }, (err, result) => {
-    if (err) throw err;
-    console.log('Dados inseridos no MongoDB');
-    res.redirect('/');
-  });
-});
-
-// Inicie o servidor
-app.listen(3000, () => {
-  console.log('Servidor iniciado na porta 3000');
-});
